@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+
+        }
+        #resultado {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejemplo AJAX de datos</h1>
+    <button id="cargar-Datos">Cargar datos</button>
+    <div id="resultado">Aqui mostramos los datos</div>
+
+    <script>
+        const boton = document.getElementById('cargar-Datos');
+        const resultado = document.getElementById('resultado')
+
+        boton.addEventListener('click', () => {
+            const url = 'https://jsonplaceholder.typicode.com/posts/1';
+
+            fetch(url)
+                .then(response =>{
+                    if(!response.ok){
+                        throw new Error('Error en la peticion');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    resultado.innerHTML =  `<h2>${data.title}</h2><p>${data.body}</p>`;
+                })
+                .catch(error => {
+                    resultado.innerHTML = 'Error al cargar los datos';
+                });
+        });
+    </script>
+    
+</body>
+</html>
