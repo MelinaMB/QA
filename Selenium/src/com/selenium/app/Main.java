@@ -19,8 +19,14 @@ public class Main {
         //crear instancia de chrome driver
         WebDriver driver = new ChromeDriver();
 
-        //navegar a google
+        //navegar a google£
         driver.get("https://www.google.com");
+
+        //localizar el elemento buscar y probarlo
+        WebElement searchBox = driver.findElement(By.name("q"));
+        searchBox.sendKeys("Historia de Linux");
+        searchBox.submit();
+
 
         //cerrar el navegador
         //driver.quit();
