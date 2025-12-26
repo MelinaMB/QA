@@ -412,15 +412,63 @@ Prueba por Enfoque: Pruebas exploratorias, Pruebas basadas en casos de uso, Prue
 
 ---
 
+### **FT-014: Actualización de saldo y historial después de transferencia**
+**Descripción:** Verificar que dashboard refleja cambios post-transferencia
+
+**Precondiciones:**
+- Usuario logueado como `user1` (saldo inicial $1000)
+- Transferencia reciente realizada
+
+**Pasos de prueba:**
+1. Realizar transferencia exitosa de $100 a user2
+2. Volver al dashboard
+3. Verificar saldo mostrado
+4. Verificar historial de transacciones
+
+**Resultado esperado:**
+- ✅ Saldo actualizado: $900
+- ✅ Transacción visible en historial con detalles correctos
+- ✅ Fecha/hora de transacción presente
+
+**Resultado obtenido:**
+- [ ] PENDING
+
+**Estado:** [PENDING/PASS/FAIL]
+
+---
+
+### **FT-015: Logout y protección de sesión**
+**Descripción:** Verificar que logout protege la sesión adecuadamente
+
+**Precondiciones:**
+- Usuario logueado como `user1`
+
+**Pasos de prueba:**
+1. Hacer logout
+2. Intentar navegar directamente a /dashboard.html
+3. Verificar redirección automática
+
+**Resultado esperado:**
+- ✅ Redirección automática a login
+- ✅ No se muestra información del usuario anterior
+- ✅ Sesión completamente terminada
+
+**Resultado obtenido:**
+- [ ] PENDING
+
+**Estado:** [PENDING/PASS/FAIL]
+
+---
+
 ## 📊 **Resumen de Ejecución**
 
 | Categoría | Total | Pass | Fail | Pending |
 |-----------|-------|------|------|---------|
 | Login | 4 | 0 | 0 | 4 |
-| Dashboard | 3 | 0 | 0 | 3 |
+| Dashboard | 4 | 0 | 0 | 4 |
 | Transferencias | 5 | 0 | 0 | 5 |
-| Logout | 1 | 0 | 0 | 1 |
-| **TOTAL** | **13** | **0** | **0** | **13** |
+| Logout | 2 | 0 | 0 | 2 |
+| **TOTAL** | **15** | **0** | **0** | **15** |
 
 ## 🔍 **Observaciones y Comentarios**
 - [Escribe aquí tus observaciones durante la ejecución]
